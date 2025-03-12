@@ -1,0 +1,26 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(92, 0, 23);
+  border-radius: 10px;
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+.numberInput {
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgb(92, 0, 23);
+  background-color: rgb(85, 85, 85);
+}
+
+.opcionesInput .span {
+  gap: 10px;
+}
