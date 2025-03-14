@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/editor.css";
-import { CirclePicker } from "react-color";
+import { CompactPicker } from "react-color";
 import PanelDeDibujo from "./PanelDeDibujo";
 
 const Editor = () => {
@@ -9,15 +9,15 @@ const Editor = () => {
   const [hideOptions, sethideOptions] = useState(false);
   const [hideDrawingPanel, sethideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState("start drawing");
-  const [selectedColor, setColor] = useState("#0F2219");
+  const [selectedColor, setColor] = useState("#0F2219", "#0F2219", "#0F2219");
 
   function iniciarPanelDeDibujo() {
     sethideOptions(!hideOptions);
     sethideDrawingPanel(!hideDrawingPanel);
 
     buttonText === "Empezar dibujo"
-      ? setButtonText("Empezar de Nuevo")
-      : setButtonText("Empezar dibujo");
+      ? setButtonText("Empezar dibujo")
+      : setButtonText("Reset");
   }
 
   function cambiarColor(color) {
@@ -37,15 +37,14 @@ const Editor = () => {
               defaultValue={PanelWidht}
               onChange={(e) => setPanelWidht(e.target.value)}
             />
-            <span>Largo </span>
-            <br />
+            <span>Largo</span>
             <input
               type="number"
               className="numberInput"
               defaultValue={PanelHeight}
               onChange={(e) => setPanelHeight(e.target.value)}
             />
-            <span> Ancho</span>
+            <span>Ancho</span>
           </div>
         </div>
       )}
@@ -53,10 +52,14 @@ const Editor = () => {
       <button onClick={iniciarPanelDeDibujo} className="button">
         {buttonText}
       </button>
-
-      {hideOptions && (
-        <CirclePicker color={selectedColor} onChangeComplete={cambiarColor} />
-      )}
+      <div className="colorPicker">
+        {hideOptions && (
+          <CompactPicker
+            color={selectedColor}
+            onChangeComplete={cambiarColor}
+          />
+        )}
+      </div>
 
       {hideOptions && (
         <PanelDeDibujo

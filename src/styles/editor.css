@@ -10,11 +10,20 @@
   padding: 30px;
 }
 
-.numberInput {
-  font-family: "Play", sans-serif;
+.opcionesNum {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
+  margin: 10px 0px;
+  gap: 10px;
+}
+.numberInput {
+  font-family: "Play", sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   height: 40px;
   margin: 5px;
   text-align: center;
@@ -26,4 +35,8 @@
 
 .opcionesInput .span {
   gap: 10px;
+}
+
+.colorPicker {
+  margin: 18px;
 }
