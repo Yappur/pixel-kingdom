@@ -6,7 +6,32 @@ const Pixel = ({ selectedColor }) => {
   const [oldColor, setoldColor] = useState(pixelColor);
   const [canChangeColor, setcanChangeColor] = useState(true);
 
-  return <div className="pixel" style={{ backgroundColor: pixelColor }}></div>;
+  function aplicarColor() {
+    setpixelColor(selectedColor);
+    setcanChangeColor(false);
+  }
+
+  function cambiarColor() {
+    setoldColor(pixelColor);
+    setpixelColor(selectedColor);
+  }
+
+  function resetColor() {
+    if (canChangeColor) {
+      setpixelColor(oldColor);
+    }
+    setcanChangeColor(true);
+  }
+
+  return (
+    <div
+      className="pixel"
+      onClick={aplicarColor}
+      onMouseEnter={cambiarColor}
+      onMouseLeave={resetColor}
+      style={{ backgroundColor: pixelColor }}
+    ></div>
+  );
 };
 
 export default Pixel;
