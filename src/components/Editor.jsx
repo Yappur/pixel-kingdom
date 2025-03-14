@@ -26,7 +26,7 @@ const Editor = () => {
 
   return (
     <div className="editor">
-      <h1>Pixel Editor</h1>
+      <h1>PIXEL EDITOR</h1>
       {hideDrawingPanel && <h2>Igresa las dimensiones de tu lienzo</h2>}
       {hideDrawingPanel && (
         <div className="opcionesNum">

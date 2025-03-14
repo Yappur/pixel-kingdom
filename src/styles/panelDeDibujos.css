@@ -7,3 +7,10 @@
 .pixels {
   margin-bottom: 2rem;
 }
+
+@media (max-width: 600px) {
+  .panelDeDibujo {
+    width: 40vw;
+    padding: 20px;
+  }
+}

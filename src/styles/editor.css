@@ -5,7 +5,7 @@
   align-items: center;
   border: 3px solid rgb(92, 0, 23);
   border-radius: 10px;
-  width: 400px;
+  width: auto;
   margin: 50px auto;
   padding: 30px;
 }
@@ -23,13 +23,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 55px;
   height: 40px;
   margin: 5px;
   text-align: center;
-  border-radius: 5px;
-  border: 1px solid rgb(92, 0, 23);
-  background-color: rgb(9, 11, 22);
+  border-radius: 10px;
+  border: 3px solid rgb(92, 0, 23);
+  background-color: #ffffff00;
   color: white;
 }
 
@@ -39,4 +39,10 @@
 
 .colorPicker {
   margin: 18px;
+}
+
+@media (max-width: 600px) {
+  .editor {
+    width: 60vw;
+  }
 }

@@ -11,3 +11,17 @@
   display: flex;
   width: fit-content;
 }
+
+@media (max-width: 570px) {
+  .pixel {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .pixel {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}

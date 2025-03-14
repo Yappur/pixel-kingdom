@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
+@font-face {
+  font-family: "pixels";
+  src: url("./public/Pixelate-Regular.ttf");
+}
+
 html,
 body {
   margin: 0;
@@ -7,17 +12,22 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, #3c3841, #050938);
+  background: linear-gradient(135deg, #3a0c18, #000000, #050938);
   min-height: 100vh;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Play", sans-serif;
+  font-family: "pixels", sans-serif;
   text-align: center;
   min-width: fit-content;
 }
 
+h1 {
+  filter: drop-shadow(8px 8px 8px rgba(73, 67, 67, 0.993));
+  margin: 0;
+  font-size: 3rem;
+}
 .button {
   background-color: rgb(92, 0, 23);
   border-radius: 10px;
@@ -29,6 +39,6 @@ body {
 
 .button:hover {
   cursor: pointer;
-  background-color: rgb(9, 11, 22);
+  background-color: #ffffff00;
   color: rgb(92, 0, 23);
 }
