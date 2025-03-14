@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-color": "^2.19.3",
+    "react-component-export-image": "^0.1.8",
     "react-dom": "^19.0.0",
     "sass": "^1.85.1"
   },
