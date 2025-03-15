@@ -1,18 +1,52 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Row from "./Row";
 import "../styles/panelDeDibujos.css";
 
-const PanelDeDibujo = ({ widht, height, selectedColor }) => {
+const PanelDeDibujo = ({ widht, height, selectedColor, currentTool }) => {
   const pixelsRef = useRef();
+  const [isDrawing, setIsDrawing] = useState(false);
 
   let rows = [];
 
   for (let i = 0; i < height; i++) {
-    rows.push(<Row key={i} widht={widht} selectedColor={selectedColor} />);
+    rows.push(
+      <Row
+        key={i}
+        widht={widht}
+        selectedColor={selectedColor}
+        isDrawing={isDrawing}
+        currentTool={currentTool}
+      />
+    );
   }
 
+  const handleMouseDown = () => {
+    setIsDrawing(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDrawing(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDrawing(false);
+  };
+
+  // Agregamos efecto para manejar eventos globales del mouse
+  useEffect(() => {
+    // Estos manejadores se ejecutarán incluso cuando el mouse se suelte fuera del panel
+    const handleGlobalMouseUp = () => {
+      setIsDrawing(false);
+    };
+
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+
+    return () => {
+      window.removeEventListener("mouseup", handleGlobalMouseUp);
+    };
+  }, []);
+
   const descargarComoImagen = () => {
-    // Creamos un canvas del mismo tamaño que nuestro panel
     const canvas = document.createElement("canvas");
     const pixelsElement = pixelsRef.current;
 
@@ -55,7 +89,13 @@ const PanelDeDibujo = ({ widht, height, selectedColor }) => {
   };
 
   return (
-    <div id="panelDeDibujo" className="panelDeDibujo">
+    <div
+      id="panelDeDibujo"
+      className="panelDeDibujo"
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+    >
       <div id="pixels" className="pixels" ref={pixelsRef}>
         {rows}
       </div>
