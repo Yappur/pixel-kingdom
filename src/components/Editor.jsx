@@ -29,7 +29,6 @@ const Editor = () => {
 
   function handleWidthChange(e) {
     const value = parseInt(e.target.value);
-    // Validar que el valor esté dentro de los límites
     if (value >= MIN_DIMENSION && value <= MAX_DIMENSION) {
       setPanelWidht(value);
     } else if (value > MAX_DIMENSION) {
@@ -43,7 +42,6 @@ const Editor = () => {
 
   function handleHeightChange(e) {
     const value = parseInt(e.target.value);
-    // Validar que el valor esté dentro de los límites
     if (value >= MIN_DIMENSION && value <= MAX_DIMENSION) {
       setPanelHeight(value);
     } else if (value > MAX_DIMENSION) {
@@ -56,51 +54,56 @@ const Editor = () => {
   }
 
   return (
-    <div className="editor">
-      <h1>PIXEL EDITOR</h1>
-      {hideDrawingPanel && <h2>Ingresa las dimensiones de tu lienzo</h2>}
-      {hideDrawingPanel && (
-        <div className="opcionesNum">
-          <div className="opcionesInput">
-            <input
-              type="number"
-              className="numberInput"
-              defaultValue={PanelWidht}
-              min={MIN_DIMENSION}
-              max={MAX_DIMENSION}
-              onChange={handleWidthChange}
-            />
-            <span>Largo (máx: {MAX_DIMENSION})</span>
-            <input
-              type="number"
-              className="numberInput"
-              defaultValue={PanelHeight}
-              min={MIN_DIMENSION}
-              max={MAX_DIMENSION}
-              onChange={handleHeightChange}
-            />
-            <span>Ancho (máx: {MAX_DIMENSION})</span>
+    <>
+      <div className="editor">
+        <h2 className="tittle">EDITOR</h2>
+        {hideDrawingPanel && <h2>Ingresa las dimensiones de tu lienzo</h2>}
+        {hideDrawingPanel && (
+          <div className="opcionesNum">
+            <div className="opcionesInput">
+              <input
+                type="number"
+                className="numberInput"
+                defaultValue={PanelWidht}
+                min={MIN_DIMENSION}
+                max={MAX_DIMENSION}
+                onChange={handleWidthChange}
+              />
+              <span>Largo (máx: {MAX_DIMENSION})</span>
+              <input
+                type="number"
+                className="numberInput"
+                defaultValue={PanelHeight}
+                min={MIN_DIMENSION}
+                max={MAX_DIMENSION}
+                onChange={handleHeightChange}
+              />
+              <span>Ancho (máx: {MAX_DIMENSION})</span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <button onClick={iniciarPanelDeDibujo} className="button">
-        {buttonText}
-      </button>
-      <div className="colorPicker">
+        <button onClick={iniciarPanelDeDibujo} className="button">
+          {buttonText}
+        </button>
+        <div className="colorPicker">
+          {hideOptions && (
+            <ChromePicker
+              color={selectedColor}
+              onChangeComplete={cambiarColor}
+            />
+          )}
+        </div>
+
         {hideOptions && (
-          <ChromePicker color={selectedColor} onChangeComplete={cambiarColor} />
+          <PanelDeDibujo
+            widht={PanelWidht}
+            height={PanelHeight}
+            selectedColor={selectedColor}
+          />
         )}
       </div>
-
-      {hideOptions && (
-        <PanelDeDibujo
-          widht={PanelWidht}
-          height={PanelHeight}
-          selectedColor={selectedColor}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
