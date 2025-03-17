@@ -1,0 +1,8 @@
+.content-footer {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  filter: drop-shadow(4px 3px 14px rgba(243, 243, 243, 0.993));
+}
