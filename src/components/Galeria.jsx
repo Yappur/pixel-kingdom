@@ -7,9 +7,9 @@ const Galeria = () => {
       <div className="galeria-container">
         <h2 className="tittle">GALERIA</h2>
         <div className="ejemplos">
-          <img src="./public/ejemplo2.png" alt="ejemplo" />
-          <img src="./public/ejemplo1.png" alt="ejemplo" />
-          <img src="./public/ejemplo3.png" alt="ejemplo" />
+          <img src="../public/ejemplo2.png" alt="ejemplo" />
+          <img src="../public/ejemplo1.png" alt="ejemplo" />
+          <img src="../public/ejemplo3.png" alt="ejemplo" />
         </div>
       </div>
     </>
